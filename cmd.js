@@ -227,7 +227,8 @@ function installShims ({ modules, overwrite }, done) {
       }
 
       log('installing:', installLine)
-      proc.execSync(installLine, {
+      // legacy-peer-deps is for credo's ui-common and data installation
+      proc.execSync(`${installLine} --legacy-peer-deps`, {
         cwd: process.cwd(),
         env: process.env,
         stdio: 'inherit'
